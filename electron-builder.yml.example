@@ -1,0 +1,16 @@
+appId: Sapo.GoChat
+productName: Sapo GO - Chat (BETA)
+publish:
+  provider: s3
+  bucket : sapogo-chat
+  acl: public-read
+  region: ap-southeast-1
+  publishAutoUpdate: true
+  channel: latest
+mac:
+  icon: public/logo-gochat.png
+win:
+  icon: public/logo-win.ico
+files:
+  - build/**/*
+  - node_modules/**/*

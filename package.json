@@ -1,0 +1,72 @@
+{
+  "name": "gochat",
+  "version": "1.0.6",
+  "private": true,
+  "homepage": "./",
+  "main": "public/electron.js",
+  "author": "linhlt4",
+  "description": "Sapo GO - Chat đa sàn",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.5",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "antd": "^4.7.3",
+    "axios": "^0.21.0",
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.2",
+    "crypto-js": "^4.0.0",
+    "electron-is-dev": "^1.2.0",
+    "electron-log": "^4.3.0",
+    "electron-updater": "^4.3.5",
+    "lodash": "^4.17.21",
+    "md5": "^2.3.0",
+    "moment": "^2.29.1",
+    "node-notifier": "^8.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "4.0.0",
+    "typescript": "^4.0.5",
+    "wait-on": "^5.2.0",
+    "web-vitals": "^0.2.4"
+  },
+  "scripts": {
+    "react-start": "set PORT=3006 && set DEVELOPMENT=true && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "electron": "set DEVELOPMENT=true npm run build && electron .",
+    "electron-dev": "SET DEVELOPMENT=true ELECTRON_START_URL=http://localhost:3006 concurrently cross-env BROWSER=none npm run react-start wait-on http://localhost:3006 && electron .",
+    "preelectron-pack": "npm run build",
+    "electron-pack": "electron-builder build --win -c.extraMetadata.main=build/electron.js --publish never",
+    "electron-pack:mac": "electron-builder build --macos -c.extraMetadata.main=build/electron.js --publish never",
+    "electron-pack:win": "electron-builder build --win -c.extraMetadata.main=build/electron.js --publish never",
+    "electron-pack:win32": "electron-builder build --win --ia32 -c.extraMetadata.main=build/electron.js --publish never",
+    "electron-pack:linux": "electron-builder -l",
+    "electron-pack:all": "electron-builder -mwl",
+    "pack": "electron-builder --dir",
+    "deploy": "electron-builder build --win -c.extraMetadata.main=build/electron.js --publish always",
+    "deploy:mac": "electron-builder build --mac -c.extraMetadata.main=build/electron.js --publish always"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^10.1.5",
+    "electron-builder": "^22.9.1"
+  }
+}
